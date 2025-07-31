@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
-Cypress.Commands.add('login',(user, senha) =>{
+Cypress.Commands.add('loginValido',(user, senha) =>{
     cy.visit(`${Cypress.env('baseURL')}`)
     cy.get('input[id="username"]').type(user)
     cy.get('#senha').type(senha)
