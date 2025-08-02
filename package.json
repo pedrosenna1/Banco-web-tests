@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
+    "test-local": "cypress run --env URL=http://localhost:4000",
+    "teste-QA": "cypress run --env URL=http://localhost:4000",
     "test-ui": "cypress run --headed"
   },
   "keywords": [],

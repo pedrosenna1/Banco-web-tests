@@ -25,8 +25,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('visitarPagina',() =>{
-    cy.visit(`${Cypress.env('baseURL')}`)
-    cy.url().should('contain',`${Cypress.env('baseURL')}`)
+    cy.visit(Cypress.env('baseURL'))
+    cy.url().should('contain', Cypress.env('baseURL'))
 
 
 })
