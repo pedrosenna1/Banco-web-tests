@@ -6,11 +6,13 @@ describe('login',()=>{
 
   it('login com credenciais validas', ()=>{
   cy.fixture('inputLogin.json').then((usuario)=>{
-  cy.loginValido(usuario.username, usuario.senha)})
+  cy.preencherCamposLogin(usuario.username, usuario.senha)})
+  cy.verificarTextoVisivel('Realizar Transferência')
 })
 
   it('login com credenciais invalidas',()=>{
-      cy.loginInvalido('pedro','1234')   
+      cy.preencherCamposLogin('pedro','1234')
+      cy.verificarTextoVisivel('Erro no login. Tente novamente')   
   })
 
 })

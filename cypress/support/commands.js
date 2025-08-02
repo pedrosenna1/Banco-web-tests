@@ -24,29 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('visitarPagina',() =>{
-    cy.visit(Cypress.env('baseURL'))
-    cy.url().should('contain', Cypress.env('baseURL'))
-
-
-})
-
-
-Cypress.Commands.add('loginValido',(user, senha) =>{
-    
-    cy.get('input[id="username"]').type(user)
-    cy.get('#senha').type(senha)
-    cy.get('[onclick="login()"]').click()
-    cy.contains('Realizar Transferência').should('be.visible')
-
-})
-
-Cypress.Commands.add('loginInvalido',(user, senha) =>{
-    
-    cy.get('input[id="username"]').type(user)
-    cy.get('#senha').type(senha)
-    cy.get('[onclick="login()"]').click()
-    cy.get('[id="toast-container"]').should('have.text','Erro no login. Tente novamente.')
-    
-
-})
+import '../support/commands/common'
+import './commands/login'
+import './commands/transferencia'
