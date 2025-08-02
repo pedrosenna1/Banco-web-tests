@@ -24,12 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-
-Cypress.Commands.add('login',(user, senha) =>{
-    cy.visit(`${Cypress.env('baseURL')}`)
-    cy.get('input[id="username"]').type(user)
-    cy.get('#senha').type(senha)
-    cy.get('[onclick="login()"]').click()
-    cy.contains('Realizar Transferência').should('be.visible')
-
-})
+import '../support/commands/common'
+import './commands/login'
+import './commands/transferencia'
